@@ -10,38 +10,45 @@ const mainMenu = document.querySelector(".main-menu");
 const closeMenu = document.querySelector("#closeMenu");
 const menuItems = document.querySelectorAll(".menu-item");
 const menuCheck = document.querySelectorAll(".check");
-const progressCount = [];
+let progressCount = 0;
 
-menuCheck.forEach((check) => {
+menuCheck.forEach((checkBtn) => {
 	let checked = false;
-	check.addEventListener("click", () => {
+	checkBtn.addEventListener("click", () => {
 		if (!checked) {
-			setTimeout(() => {
-				check.firstElementChild.setAttribute(
-					"src",
-					"https://crushingit.tech/hackathon-assets/icon-spinner.svg"
-				);
-			}, 300);
-			check.firstElementChild.setAttribute(
-				"src",
-				"https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg"
-			);
-			check.setAttribute("aria-checked", true);
 			checked = true;
-		} else {
-			setTimeout(() => {
-				check.firstElementChild.setAttribute(
-					"src",
-					"https://crushingit.tech/hackathon-assets/icon-spinner.svg"
-				);
-			}, 300);
-			check.firstElementChild.setAttribute(
+			progressCount++;
+			document.getElementById("completedTask").textContent =
+				progressCount;
+			document.querySelector(".progress").style.width =
+				(100 / 5) * progressCount + "%";
+			checkBtn.firstElementChild.setAttribute(
 				"src",
-				"https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg"
+				"https://crushingit.tech/hackathon-assets/icon-spinner.svg"
 			);
-			check.setAttribute("aria-checked", true);
+			checkBtn.firstElementChild.style.filter = "invert(100%)";
+			checkBtn.setAttribute("aria-checked", true);
+			setTimeout(() => {
+				checkBtn.firstElementChild.setAttribute(
+					"src",
+					"https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg"
+				);
+				checkBtn.firstElementChild.style.filter = "invert(0)";
+			}, 300);
+		} else if (checked) {
+			progressCount--;
+			checkBtn.setAttribute("aria-checked", false);
+			document.getElementById("completedTask").textContent =
+				progressCount;
+			document.querySelector(".progress").style.width =
+				(100 / 5) * progressCount + "%";
+			checkBtn.firstElementChild.style.filter = "invert(100%)";
+			checkBtn.firstElementChild.setAttribute(
+				"src",
+				"https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg"
+			);
+			checked = false;
 		}
-		// console.log(check);
 	});
 });
 

@@ -424,6 +424,7 @@ main .main-menu {
 	margin-top: 20px;
 	padding: 20px 8px;
 	border: 1px solid var(--text-dark-1);
+	transition: height .2s ease;
 }
 
 .main-menu > button {
@@ -478,9 +479,11 @@ main .main-menu {
 	overflow: hidden;
 }
 .main-menu .setup-guide .progress {
-	width: calc(100% / 5);
+	/* width: calc(100% / 5); */
+	width: 0;
 	height: 100%;
 	background: var(--nav-dark-0);
+	transition: width 0.2s ease;
 }
 
 .main-menu .menu {
@@ -522,7 +525,7 @@ main .main-menu {
 
 .menu-item .check[aria-checked="true"] img {
 	filter: unset;
-	animation: roll .3s linear forwards;
+	animation: roll 0.3s linear forwards;
 }
 
 @keyframes roll {
@@ -714,6 +717,7 @@ main .main-menu {
 		margin-top: 20px;
 		padding: 20px 8px;
 		border: 1px solid var(--text-dark-1);
+		transition: height .2s ease;
 	}
 
 	.main-menu > button {
@@ -766,12 +770,6 @@ main .main-menu {
 		background: var(--text-dark-1);
 		margin-bottom: 8px;
 		overflow: hidden;
-	}
-
-	.main-menu .setup-guide .progress {
-		width: calc(100% / 5);
-		height: 100%;
-		background: var(--nav-dark-0);
 	}
 
 	.main-menu .menu .container {
