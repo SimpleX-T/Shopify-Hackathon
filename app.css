@@ -24,9 +24,9 @@ html {
 	--text-dark-2: #e3e3e3;
 }
 
-:focus {
+/* :focus {
 	outline: 2px solid var(--text-dark-1);
-}
+} */
 
 .hidden {
 	display: none;
@@ -47,7 +47,7 @@ button {
 }
 
 body {
-	width: 100%;
+	/* width: 100%; */
 	height: 100vh;
 	background: #f1f1f1;
 }
@@ -56,7 +56,7 @@ header {
 	position: relative;
 	width: 100%;
 	height: 60px;
-	padding: 20px;
+	padding: 10px 5px 10px 10px;
 	display: flex;
 	align-items: center;
 	background: #1c181d;
@@ -424,7 +424,6 @@ main .main-menu {
 	margin-top: 20px;
 	padding: 20px 8px;
 	border: 1px solid var(--text-dark-1);
-	transition: height .2s ease;
 }
 
 .main-menu > button {
@@ -490,6 +489,7 @@ main .main-menu {
 	display: none;
 	width: 100%;
 	height: auto;
+	transition: 2s ease;
 }
 
 .menu .menu-item {
@@ -717,7 +717,6 @@ main .main-menu {
 		margin-top: 20px;
 		padding: 20px 8px;
 		border: 1px solid var(--text-dark-1);
-		transition: height .2s ease;
 	}
 
 	.main-menu > button {
